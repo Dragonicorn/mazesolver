@@ -17,7 +17,7 @@ class Maze():
         self._cell_height = cell_size_y
         self._rows = num_rows
         self._cols = num_cols
-        self._cells = [[0] * self._cols] * self._rows
+        self._cells = [[0 for c in range(self._cols)] for r in range(self._rows)]
         self._create_cells()
 
     def _create_cells(self):
@@ -29,10 +29,18 @@ class Maze():
                 if self._win != None:
                     self._draw_cell(r, c)
                     self._animate()
+        self._break_entrance_and_exit()
 
     def _draw_cell(self, r, c):
         self._cells[r][c].draw(self._win.canvas(), "white")
 
     def _animate(self):
         self._win.redraw()
-        time.sleep(0.05)
+        time.sleep(0.02)
+
+    def _break_entrance_and_exit(self):
+        self._cells[0][0].has_top_wall = False
+        self._cells[self._rows - 1][self._cols - 1].has_bottom_wall = False
+        if self._win != None:
+            self._draw_cell(0, 0)
+            self._draw_cell(self._rows - 1, self._cols - 1)
