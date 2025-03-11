@@ -11,19 +11,13 @@ def main():
     #win.draw_line(line1, "white")
     #win.draw_line(line2, "yellow")
 
-    cell = Cell(0)
-    win.draw_cell(cell, "white")
-    cell = Cell(32)
-    cell.has_bottom_wall = False
-    win.draw_cell(cell, "yellow")
-    cell = Cell(57)
-    cell.has_left_wall = False
-    cell.has_top_wall = False
-    win.draw_cell(cell, "blue")
-    cell = Cell(71)
-    cell.has_right_wall = False
-    cell.has_bottom_wall = False
-    win.draw_cell(cell, "green")
+    cell1 = Cell(0)
+    win.draw_cell(cell1, "white")
+    cell2 = Cell(57)
+    cell2.has_left_wall = False
+    cell2.has_top_wall = False
+    win.draw_cell(cell2, "blue")
+    cell1.draw_move(win.canvas(), cell2)
     win.wait_for_close()
 
 main()

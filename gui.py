@@ -10,6 +10,9 @@ class Window():
         self.__root.protocol("WM_DELETE_WINDOW", self.close)
         self.active = False
 
+    def canvas(self):
+        return self.__root.canvas
+
     def draw_line(self, line, fill_color):
         line.draw(self.__root.canvas, fill_color)
 
