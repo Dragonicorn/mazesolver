@@ -4,8 +4,11 @@ from tkinter import Tk, BOTH, Canvas
 class Window():
     def __init__(self, width, height):
         self.__root = Tk()
+        self.__root.geometry(f"{width}x{height}")
+        self.__root.minsize(width, height)
+        self.__root.maxsize(width, height)
         self.__root.title("Maze Solver")
-        self.__root.canvas = Canvas(cnf={"bg":"black"})
+        self.__root.canvas = Canvas(self.__root, width=width, height=height, bg="black")
         self.__root.canvas.pack()
         self.__root.protocol("WM_DELETE_WINDOW", self.close)
         self.active = False

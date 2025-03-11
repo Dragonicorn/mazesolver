@@ -1,6 +1,7 @@
 from constants import *
 from gui import *
 from cell import *
+from maze import *
 
 def main():
 
@@ -11,13 +12,12 @@ def main():
     #win.draw_line(line1, "white")
     #win.draw_line(line2, "yellow")
 
-    cell1 = Cell(0)
-    win.draw_cell(cell1, "white")
-    cell2 = Cell(57)
-    cell2.has_left_wall = False
-    cell2.has_top_wall = False
-    win.draw_cell(cell2, "blue")
-    cell1.draw_move(win.canvas(), cell2)
+    maze_width = 20
+    maze_height = 20
+    tl = Point((WINDOW_WIDTH - CELL_SIZE * maze_width) // 2, (WINDOW_HEIGHT - CELL_SIZE * maze_height) // 2)
+    print("Top Left = ", tl.x, tl.y)
+    maze = Maze(tl, maze_width, maze_height, CELL_SIZE, CELL_SIZE, win)
+
     win.wait_for_close()
 
 main()

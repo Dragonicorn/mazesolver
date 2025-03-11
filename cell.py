@@ -2,20 +2,18 @@ from constants import *
 from gui import *
 
 class Cell():
-    def __init__(self, number):
-        self._x1 = (number % CELL_COLUMNS) * CELL_SIZE
-        self._y1 = (number // CELL_COLUMNS) * CELL_SIZE
-        self._x2 = self._x1 + CELL_SIZE - 1
-        self._y2 = self._y1 + CELL_SIZE - 1
-        #print("top left=",self._x1, self._y1)
-        #print("bottom right=",self._x2, self._y2)
+    def __init__(self, tl, br):
+        self._x1 = tl.x
+        self._y1 = tl.y
+        self._x2 = br.x
+        self._y2 = br.y
         self.has_left_wall = True
         self.has_right_wall = True
         self.has_top_wall = True
         self.has_bottom_wall = True
 
     def center(self):
-        return Point(self._x1 + CELL_SIZE // 2, self._y1 + CELL_SIZE // 2)
+        return Point(self._x1 + (self._x2 - self._x1) // 2, self._y1 + (self._y2 - self._y1) // 2)
 
     def draw(self, canvas, fill_color):
         if self.has_left_wall:
