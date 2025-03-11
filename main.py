@@ -12,11 +12,11 @@ def main():
     #win.draw_line(line1, "white")
     #win.draw_line(line2, "yellow")
 
-    maze_width = 20
-    maze_height = 20
+    maze_width = 12
+    maze_height = 10
     tl = Point((WINDOW_WIDTH - CELL_SIZE * maze_width) // 2, (WINDOW_HEIGHT - CELL_SIZE * maze_height) // 2)
     print("Top Left = ", tl.x, tl.y)
-    maze = Maze(tl, maze_width, maze_height, CELL_SIZE, CELL_SIZE, win)
+    maze = Maze(tl, maze_height, maze_width, CELL_SIZE, CELL_SIZE, win)
 
     win.wait_for_close()
 

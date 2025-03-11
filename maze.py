@@ -9,7 +9,7 @@ class Maze():
             tl,
             num_rows, num_cols,
             cell_size_x, cell_size_y,
-            win,
+            win = None,
         ):
         self._win = win
         self._tl = tl
@@ -26,8 +26,9 @@ class Maze():
                 tl = Point(self._tl.x + self._cell_width * c, self._tl.y + self._cell_height * r)
                 br = Point(tl.x + self._cell_width - 1, tl.y + self._cell_height - 1)
                 self._cells[r][c] = Cell(tl, br)
-                self._draw_cell(r, c)
-                self._animate()
+                if self._win != None:
+                    self._draw_cell(r, c)
+                    self._animate()
 
     def _draw_cell(self, r, c):
         self._cells[r][c].draw(self._win.canvas(), "white")
