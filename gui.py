@@ -1,3 +1,4 @@
+from constants import *
 from tkinter import Tk, BOTH, Canvas
 
 class Window():
@@ -11,6 +12,9 @@ class Window():
 
     def draw_line(self, line, fill_color):
         line.draw(self.__root.canvas, fill_color)
+
+    def draw_cell(self, cell, fill_color):
+        cell.draw(self.__root.canvas, fill_color)
 
     def redraw(self):
         self.__root.update_idletasks()
