@@ -39,4 +39,4 @@ class Cell():
         Line(Point(self._x1, self._y2), Point(self._x2, self._y2)).draw(canvas, color)
 
     def draw_move(self, canvas, to_cell, undo=False):
-        Line(self.center(), to_cell.center()).draw(canvas, "gray" if undo else "red")
+        Line(self.center(), to_cell.center()).draw(canvas, "red" if undo else "gray")
