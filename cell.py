@@ -11,6 +11,7 @@ class Cell():
         self.has_right_wall = True
         self.has_top_wall = True
         self.has_bottom_wall = True
+        self.visited = False
 
     def center(self):
         return Point(self._x1 + (self._x2 - self._x1) // 2, self._y1 + (self._y2 - self._y1) // 2)
